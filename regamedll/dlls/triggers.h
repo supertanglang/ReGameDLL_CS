@@ -518,6 +518,11 @@ public:
 	virtual void KeyValue(KeyValueData *pkvd);
 	virtual void Touch(CBaseEntity *pOther);
 
+#ifdef REGAMEDLL_FIXES
+	virtual void Restart();
+	virtual int ObjectCaps() { return (CBaseEntity::ObjectCaps() | FCAP_MUST_RESET); }
+#endif
+
 #ifdef HOOK_GAMEDLL
 
 	void Spawn_();

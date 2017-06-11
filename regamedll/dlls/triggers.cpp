@@ -1591,6 +1591,13 @@ void CTriggerPush::__MAKE_VHOOK(Spawn)()
 	UTIL_SetOrigin(pev, pev->origin);
 }
 
+#ifdef REGAMEDLL_FIXES
+void CTriggerPush::Restart()
+{
+	Spawn();
+}
+#endif
+
 void CTriggerPush::__MAKE_VHOOK(Touch)(CBaseEntity *pOther)
 {
 	entvars_t *pevToucher = pOther->pev;
